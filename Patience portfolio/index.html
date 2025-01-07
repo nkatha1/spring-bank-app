@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patience Nkatha | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .typing-effect {
+            font-family: 'Poppins', sans-serif;
+            display: inline-block;
+            overflow: hidden;
+            border-right: 0.15em solid yellow;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            animation: typing 3s steps(20) 1s forwards, blink 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        /* Section and hover styles */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .project-card {
+            background: linear-gradient(to bottom right, #ffffff, #f9fafb);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ensure mobile responsiveness */
+        @media (max-width: 768px) {
+            .home-content {
+                text-align: center;
+                padding: 20px;
+            }
+            .home-content h1 {
+                font-size: 3rem;
+            }
+            .home-content p {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white">
+
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center py-4 px-8 md:px-16">
+        <div class="text-xl font-bold">PATIENCE NKATHA</div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <ul id="nav-links" class="hidden md:flex space-x-6 text-lg">
+            <li><a href="#home" class="hover:text-gray-300">Home</a></li>
+            <li><a href="#about" class="hover:text-gray-300">About</a></li>
+            <li><a href="#projects" class="hover:text-gray-300">Projects</a></li>
+            <li><a href="#education" class="hover:text-gray-300">Education</a></li>
+            <li><a href="#skills" class="hover:text-gray-300">Skills</a></li>
+            <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-4 home-content fade-in">
+        <div class="flex items-center justify-center space-x-8 mb-8">
+            <!-- Your Picture Section -->
+            <img src="Patience.jpg" alt="Patience Nkatha" class="rounded-full w-48 h-48 object-cover">
+            <div>
+                <h1 class="typing-effect text-5xl md:text-7xl font-bold mb-4">
+                    Hi, I'm <span class="text-yellow-300">Patience Nkatha</span>!
+                </h1>
+                <p class="text-xl md:text-2xl mb-4">
+                    🔹 Full-Stack Developer | Data Enthusiast | Tech Explorer 🔹
+                </p>
+                <p class="text-lg md:text-xl mb-8">
+                    Passionate about building interactive and user-friendly web applications.
+                </p>
+                <div class="flex space-x-4 mb-8">
+                    <a href="#about" class="bg-yellow-300 text-black px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-yellow-400">
+                        Learn More
+                    </a>
+                    <a href="#contact" class="bg-transparent border-2 border-yellow-300 px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-yellow-300 hover:text-black">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20 bg-blue-300 text-center fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-semibold mb-6 text-black">Download My Resume</h2>
+            <p class="text-lg text-black mb-8">Click the button below to download my full resume and learn more about my qualifications and experiences.</p>
+            <a href="Patience Resume.pdf" download="Patience_Nkatha_Resume.pdf" class="bg-black text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:bg-gray-800">
+                Download Resume
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-semibold mb-6 text-gray-800">About Me</h2>
+            <p class="text-lg text-gray-700">I'm a full-stack developer passionate about creating impactful applications. I love solving problems and constantly learning new technologies to improve my skills and deliver the best solutions for my clients.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-100 text-center fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-semibold mb-6 text-gray-800">Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Example Project Card -->
+                <div class="project-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">E-shop API</h3>
+                    <p class="text-gray-700 mt-2">A full-stack web application built with Flask for the backend and SQL for database management. It allows users to create, assign, and track tasks with role-based access and secure user authentication. The app also integrates a payment gateway for managing transactions, showcasing skills in backend development, database design, and security.</p>
+                    <a href="https://github.com/nkatha1/AI-powered-website" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View on Github</a>
+                    <a href="https://nkatha1.github.io/AI-powered-website/" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View live</a>
+                </div>
+
+                <div class="project-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Heart health disease prediction</h3>
+                    <p class="text-gray-700 mt-2">A machine learning-based web application that predicts the likelihood of heart disease using user-provided health data. Built with Python (Pandas, Scikit-Learn) and Flask, the model uses classification algorithms to analyze factors like age, cholesterol levels, and blood pressure. The application provides real-time predictions and displays results in an intuitive user interface, helping users assess their heart health risk.</p>
+                    <a href="https://github.com/nkatha1/heart-disease_prediction" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View on Github</a>
+                    <a href="https://nkatha1.github.io/heart-disease_prediction/" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View live</a>
+
+                </div>
+                <div class="project-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Fitness Checker</h3>
+                    <p class="text-gray-700 mt-2">A web application designed to assess users' fitness levels by calculating key metrics such as BMI, heart rate, and activity levels. Built with JavaScript and Flask, the app provides personalized fitness recommendations based on user input. It features a clean, responsive interface for easy tracking and managing fitness goals, promoting healthier lifestyle choices.</p>
+                    <a href="https://github.com/nkatha1/fitness_checker" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View on Github</a>
+                    <a href="https://nkatha1.github.io/fitness_checker/" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View live</a>
+
+                </div>
+
+                </div>
+
+                <div class="project-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">To-Do List App</h3>
+                    <p class="text-gray-700 mt-2">A simple, user-friendly web application for managing tasks. Built with HTML, CSS, and JavaScript, the app allows users to add, edit, and delete tasks, as well as mark them as completed. It features local storage to persist tasks across sessions, providing a seamless task management experience.</p>
+                    <a href="https://github.com/nkatha1/To-do-list-app-" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View on Github</a>
+                    <a href="https://nkatha1.github.io/To-do-list-app-/" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View live</a>
+
+                </div>
+
+                <div class="project-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800"> Restaurant Online Ordering Foodie Website.</h3>
+                    <p class="text-gray-700 mt-2">An interactive online platform for ordering food from local restaurants. Built with HTML, CSS, and JavaScript, the site allows users to browse restaurant menus, place orders, and make secure payments online. It offers a seamless and convenient food ordering experience, providing real-time updates on order status and delivery.</p>
+                    <a href="https://github.com/nkatha1/Foodie-Website" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View on Github</a>
+                    <a href="https://nkatha1.github.io/Foodie-Website/" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View live</a>
+        
+
+                <div class="project-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Generate Random Password</h3>
+                    <p class="text-gray-700 mt-2">A web application that generates strong, random passwords with customizable length and character types (e.g., uppercase, lowercase, numbers, symbols). Built with JavaScript, the tool ensures users can create secure passwords for better online security.</p>
+                    <a href="https://github.com/nkatha1/Random-password-" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View on Github</a>
+                    <a href="https://nkatha1.github.io/Random-password-/" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View live</a>
+
+                </div>
+
+
+                <div class="project-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Women Who Code</h3>
+                    <p class="text-gray-700 mt-2">A blog dedicated to celebrating and empowering women in technology. It features inspiring stories, tutorials, and resources to support women pursuing careers in coding and software development, fostering a community of female tech enthusiasts and professionals.</p>
+                    <a href="https://github.com/nkatha1/women-who-code-blog" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View on Github</a>
+                    <a href="https://nkatha1.github.io/women-who-code-blog/" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View live</a>
+
+                    <div class="project-card p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold text-gray-800">Calculator App</h3>
+                        <p class="text-gray-700 mt-2">A simple yet powerful web-based calculator built with HTML, CSS, and JavaScript. It supports basic arithmetic operations like addition, subtraction, multiplication, and division, providing a user-friendly interface for quick and efficient calculations.</p>
+                        <a href="https://github.com/nkatha1/calculator-App" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View on Github</a>
+                        <a href="https://nkatha1.github.io/calculator-App/" target="_blank" class="text-blue-500 hover:text-blue-700 mt-4 block">View live</a>
+            <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gray-100 text-center fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-semibold mb-6 text-gray-800">Education</h2>
+            <div class="flex justify-center space-x-8 mb-8">
+                <!-- Kirinyaga University -->
+                <div>
+                    <img src="image.png" alt="Kirinyaga University" class="w-32 h-32 object-cover mb-4 mx-auto">
+                    <p class="text-lg text-gray-700">Kirinyaga University<br>Economics and Statistics (2020-2024)</p>
+                </div>
+                <!-- ALX Africa -->
+                <div>
+                    <img src="ALX AFRICA.png" alt="ALX Africa" class="w-32 h-32 object-cover mb-4 mx-auto">
+                    <p class="text-lg text-gray-700">ALX Africa - Software Engineering (Jan 2023 - Jan 2024)</p>
+                </div>
+                <!-- Ruiri Girls High School -->
+                <div>
+                    <p class="text-lg text-gray-700">Ruiri Girls High School (2016-2019)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white text-center fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-semibold mb-6 text-gray-800">Skills</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
+                <div><img src=".vscode/netlify.png" alt="Netlify" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/heroku.png" alt="Heroku" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/Figma.png" alt="Figma" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/git.png" alt="Git" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/Kaggle d.png"alt="github" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/vs code.png" alt="Vs Code" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/java.png" alt="Java" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/Python.png" alt="Python" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/js.png" alt="Javascript" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/HTML.png" alt="HTML" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/CSS.png" alt="CSS" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/MY SQL.png" alt="MY SQL" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/MYPHP.png" alt="PHP" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/mango database.png" alt="Mangodb" class="w-16 h-16 object-cover mx-auto"></div>
+                <div><img src=".vscode/Reactjs.png" alt="React.js" class="w-16 h-16 object-cover mx-auto"></div>
+
+
+                <!-- Add more logos as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100 text-center fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-semibold mb-6 text-gray-800">Contact Me</h2>
+            <form id="contact-form" class="max-w-lg mx-auto space-y-6">
+                <div>
+                    <label for="name" class="block text-lg font-medium text-gray-700">Name</label>
+                    <input type="text" id="name" name="user_name" required class="w-full px-4 py-2 rounded-md border border-gray-300">
+                </div>
+                <div>
+                    <label for="email" class="block text-lg font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="user_email" required class="w-full px-4 py-2 rounded-md border border-gray-300">
+                </div>
+                <div>
+                    <label for="message" class="block text-lg font-medium text-gray-700">Message</label>
+                    <textarea id="message" name="message" required class="w-full px-4 py-2 rounded-md border border-gray-300"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-yellow-300 text-black py-3 rounded-md hover:bg-yellow-400 transition">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gradient-to-r from-blue-300 via-pink-400 to-purple-500 text-white text-center py-6">
+        <p>&copy; Patience Nkatha. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("EQdajZuelUAiHDPhy");
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_jby8rb4', 'template_obfzawq', this)
+                .then(function() {
+                    alert('Email sent successfully!');
+                }, function(error) {
+                    alert('Failed to send email. Please try again later.');
+                    console.error('EmailJS Error:', error);
+                });
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
