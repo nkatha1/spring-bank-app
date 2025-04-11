@@ -1,59 +1,44 @@
-import express from "express";
-import { ApolloServer, gql } from "apollo-server-express";
-import { PrismaClient } from "@prisma/client";
+import express from 'express';
+import { ApolloServer } from 'apollo-server-express';
+import dotenv from 'dotenv';
+import { gql } from 'apollo-server-express';
+import { authResolvers } from './authResolvers';  // Assuming your resolvers are correctly imported
+import { loadFiles } from '@graphql-tools/load-files';  // Importing the loadFiles function
+import { mergeTypeDefs } from '@graphql-tools/merge';  // Importing the mergeTypeDefs function
 
-const prisma = new PrismaClient();
-const app = express();
+dotenv.config();
 
-// Define your schema (this is a simple example for posts)
-const typeDefs = gql`
-  type Post {
-    id: Int!
-    content: String!
-    createdAt: String!
-    user: User!
-  }
+const app: express.Application = express();
 
-  type User {
-    id: Int!
-    username: String!
-  }
-
-  type Query {
-    posts: [Post!]!
-  }
-`;
-
-// Define resolvers to fetch data from Prisma
-const resolvers = {
-  Query: {
-    posts: async () => {
-      return await prisma.post.findMany({
-        include: {
-          user: true, // include user info along with the posts
-        },
-      });
-    },
-  },
+// Load the GraphQL schema from the .graphql file
+// Make sure you use async/await properly here since loading files is async
+const loadGraphQLSchema = async () => {
+  const files = await loadFiles('./src/schema.graphql');
+  return mergeTypeDefs(files);
 };
 
-// Create an Apollo Server instance
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
+const startServer = async () => {
+  // Ensure the GraphQL schema is loaded
+  const typeDefs = await loadGraphQLSchema();
 
-async function startServer() {
-  await server.start(); // Start Apollo Server
+  // Apollo Server Setup
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers: authResolvers,  // Use the resolvers imported
+    context: ({ req }) => {
+      // Optional auth middleware logic (you can implement authentication logic here)
+      return { req };
+    },
+  });
 
-  // Apply middleware to integrate Apollo with Express
+  // Apply Apollo middleware to the Express app
+  await server.start();  // Ensure the Apollo Server is started
   server.applyMiddleware({ app });
 
-  // Set up Express to listen on port 4000
-  app.listen({ port: 4000 }, () =>
-    console.log(`Server ready at http://localhost:4000${server.graphqlPath}`)
-  );
-}
+  const PORT = process.env.PORT || 4000;
+  app.listen(PORT, () => {
+    console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`);
+  });
+};
 
-// Run the server
 startServer();
