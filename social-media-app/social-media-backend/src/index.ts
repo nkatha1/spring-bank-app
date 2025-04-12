@@ -1,44 +1,37 @@
 import express from 'express';
-import { ApolloServer } from 'apollo-server-express';
-import dotenv from 'dotenv';
-import { gql } from 'apollo-server-express';
-import { authResolvers } from './authResolvers';  // Assuming your resolvers are correctly imported
-import { loadFiles } from '@graphql-tools/load-files';  // Importing the loadFiles function
-import { mergeTypeDefs } from '@graphql-tools/merge';  // Importing the mergeTypeDefs function
+import { ApolloServer } from '@apollo/server';  // Apollo Server 4.x import
+import { typeDefs } from './schema';  // Assuming you have your schema exported here
+import { resolvers } from './resolvers';  // Assuming you have resolvers defined
+import { PrismaClient } from '@prisma/client';
+import { json } from 'express';  // To handle JSON requests
 
-dotenv.config();
+// Initialize Prisma Client
+const prisma = new PrismaClient();
 
-const app: express.Application = express();
+// Initialize Express App
+const app = express();
 
-// Load the GraphQL schema from the .graphql file
-// Make sure you use async/await properly here since loading files is async
-const loadGraphQLSchema = async () => {
-  const files = await loadFiles('./src/schema.graphql');
-  return mergeTypeDefs(files);
-};
+// Initialize Apollo Server
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
-const startServer = async () => {
-  // Ensure the GraphQL schema is loaded
-  const typeDefs = await loadGraphQLSchema();
+// Start the Apollo Server and apply middleware to Express
+async function startServer() {
+  await server.start(); // Start Apollo Server
+  
+  // Apply Apollo server handler as middleware
+  app.use(json());  // Middleware to handle JSON requests
 
-  // Apollo Server Setup
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers: authResolvers,  // Use the resolvers imported
-    context: ({ req }) => {
-      // Optional auth middleware logic (you can implement authentication logic here)
-      return { req };
-    },
+  // Apollo Server v4 requires using createHandler
+  app.use('/graphql', server.createHandler());  // Use the createHandler method
+
+  // Listen on a specific port
+  app.listen(4000, () => {
+    console.log(`Server is running on http://localhost:4000/graphql`);
   });
+}
 
-  // Apply Apollo middleware to the Express app
-  await server.start();  // Ensure the Apollo Server is started
-  server.applyMiddleware({ app });
-
-  const PORT = process.env.PORT || 4000;
-  app.listen(PORT, () => {
-    console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`);
-  });
-};
-
+// Call the startServer function
 startServer();
