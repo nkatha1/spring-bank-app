@@ -1,0 +1,40 @@
+name: flutter
+description: A new Flutter project
+
+# The version of the app
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.0 <3.0.0"
+
+  flutter:
+  assets:
+    - assets/data/products.json
+    - assets/images/
+
+
+dependencies:
+  # Flutter dependencies
+  flutter:
+    sdk: flutter
+
+  # Additional dependencies (e.g., json_serializable or provider, if required)
+  # Add here if you're using any state management or other libraries
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Add other dev dependencies if needed
+
+flutter:
+  uses-material-design: true
+
+  # Assets
+  assets:
+    - assets/images/logo.png           # Path to your logo image
+    - assets/data/user_data.json       # Your mock user data file
+    - assets/data/products.json        # Your mock products data
+    - assets/data/customers.json       # Your mock customer data
+    - assets/data/warehouses.json      # Your mock warehouse data
+    - assets/data/sales_data.json      # Your mock sales data
