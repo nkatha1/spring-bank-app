@@ -1,0 +1,26 @@
+name: flutter_project
+description: A new Flutter project
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/logo.png
+    - assets/data/user_data.json
+    - assets/data/products.json
+    - assets/data/customers.json
+    - assets/data/warehouses.json
+    - assets/data/sales_data.json

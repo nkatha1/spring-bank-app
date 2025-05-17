@@ -1,0 +1,12 @@
+[
+  {
+    "id": 101,
+    "location": "Nairobi",
+    "stock": 120
+  },
+  {
+    "id": 102,
+    "location": "Nakuru",
+    "stock": 85
+  }
+]

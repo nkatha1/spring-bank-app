@@ -1,0 +1,1 @@
+:  C:\\Users\\s\\Desktop\\flutter\ project\\web\\index.html
